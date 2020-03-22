@@ -1,0 +1,21 @@
+import java.text.SimpleDateFormat;
+import java.util.*;
+public class forum {
+    public static void main (String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Masukkan Tanggal (example: 17 Maret 2020) : ");
+        String input = scan.nextLine();
+        getDay(input);
+        scan.close();
+    }
+    public static void getDay(String input) {
+        try {
+            Locale loc = new Locale("id","ID");
+            Date date = new SimpleDateFormat("dd MMMM yyyy", loc).parse(input);
+            String day = new SimpleDateFormat("EEEE", loc).format(date);
+            System.out.println("Hari ".concat(day));
+        } catch (Exception e) {
+            System.out.println("Input tidak sesuai");
+        }
+    }
+}
